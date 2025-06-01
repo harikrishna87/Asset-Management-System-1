@@ -55,7 +55,7 @@ const EquipmentTypeList = ({ equipmentTypes, onEdit, onDelete, onAdd }) => {
       }
     },
     {
-      title: <span style={{color: "#1677FF", fontSize: "16px"}}>Created At</span>,
+      title: <span style={{color: "#1677FF", fontSize: "16px"}}>CreatedAt</span>,
       dataIndex: 'createdAt',
       key: 'createdAt',
       render: (text) => new Date(text).toLocaleDateString(),

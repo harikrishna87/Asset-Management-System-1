@@ -16,7 +16,7 @@ const PurchaseList = ({ purchases, onAdd }) => {
       sorter: (a, b) => a.base?.name.localeCompare(b.base?.name),
     },
     {
-      title: <span style={{color: "#1677FF", fontSize: "16px"}}>Equipment Type</span>,
+      title: <span style={{color: "#1677FF", fontSize: "16px"}}>EquipmentType</span>,
       dataIndex: 'equipmentType',
       key: 'equipmentType',
       render: eq => eq?.name || 'N/A',
@@ -48,14 +48,14 @@ const PurchaseList = ({ purchases, onAdd }) => {
       render: supplier => supplier || <Tag>Unknown</Tag>,
     },
     {
-      title: <span style={{color: "#1677FF", fontSize: "16px"}}>Purchase Date</span>,
+      title: <span style={{color: "#1677FF", fontSize: "16px"}}>PurchaseDate</span>,
       dataIndex: 'purchaseDate',
       key: 'purchaseDate',
       render: (text) => new Date(text).toLocaleDateString(),
       sorter: (a, b) => new Date(a.purchaseDate) - new Date(b.purchaseDate),
     },
     {
-      title: <span style={{color: "#1677FF", fontSize: "16px"}}>Recorded By</span>,
+      title: <span style={{color: "#1677FF", fontSize: "16px"}}>RecordedBy</span>,
       dataIndex: 'recordedBy',
       key: 'recordedBy',
       render: recBy => (
