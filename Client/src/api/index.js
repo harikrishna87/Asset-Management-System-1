@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'https://asset-management-task.onrender.com';
+const API_BASE_URL = 'https://asset-management-system-1-csb0.onrender.com';
 
 const apiClient = axios.create({
   baseURL: API_BASE_URL,
