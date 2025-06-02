@@ -86,14 +86,14 @@ const PurchaseFormModal = ({ visible, onCreate, onCancel }) => {
         </Form.Item>
         <Form.Item
           name="supplier"
-          label={<span style={{color: "#1677FF", fontSize: "16px"}}>Supplier (Optional)</span>}
+          label={<span style={{color: "#1677FF", fontSize: "16px"}}>Supplier</span>}
           rules={[{ required: true, message: 'Please mention the Supplier!' }]}
         >
           <Input />
         </Form.Item>
         <Form.Item
           name="cost"
-          label={<span style={{color: "#1677FF", fontSize: "16px"}}>Total Cost (Optional)</span>}
+          label={<span style={{color: "#1677FF", fontSize: "16px"}}>Total Cost</span>}
           rules={[{ required: true, message: 'Please mention the Total Cost!' }]}
         >
           <InputNumber min={0} style={{ width: '100%' }} />

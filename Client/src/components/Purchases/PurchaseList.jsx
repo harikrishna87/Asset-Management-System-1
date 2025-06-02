@@ -60,8 +60,8 @@ const PurchaseList = ({ purchases, onAdd }) => {
       key: 'recordedBy',
       render: recBy => (
         <Tooltip title={recBy?.username || 'Unknown User'}>
-          <UserOutlined /> {recBy?.username.substring(0,10) || 'N/A'}
-          {recBy?.username.length > 10 && '...'}
+          <UserOutlined /> {recBy?.username?.substring(0,10) || 'N/A'}
+          {recBy?.username?.length > 10 && '...'}
         </Tooltip>
       ),
     },
@@ -78,7 +78,7 @@ const PurchaseList = ({ purchases, onAdd }) => {
           textOverflow: "ellipsis",
           maxWidth: "150px"
         }}>{desc}</span>
-      ) : (<Tag color='valcano'>No Description</Tag>),
+      ) : (<Tag color='volcano'>No Description</Tag>),
     },
   ];
 
