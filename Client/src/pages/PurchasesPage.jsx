@@ -75,7 +75,7 @@ const PurchasesPage = () => {
         purchases={purchases}
         onAdd={handleAdd}
       />
-      {isModalVisible && (user?.role === 'Admin' || user?.role === 'LogOfficer') && (
+      {isModalVisible && (user?.role === 'Admin') && (
         <PurchaseFormModal
           visible={isModalVisible}
           onCreate={handleCreate}

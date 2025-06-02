@@ -5,7 +5,7 @@ import { useAuth } from '../../contexts/AuthContext';
 
 const PurchaseList = ({ purchases, onAdd }) => {
   const { user } = useAuth();
-  const canAddPurchase = user?.role === 'Admin' || user?.role === 'LogOfficer';
+  const canAddPurchase = user?.role === 'Admin';
 
   const columns = [
     {

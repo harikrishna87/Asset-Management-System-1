@@ -4,7 +4,7 @@ const { Protect, Authorize } = require("../Middleware/AuthMiddleWare.js");
 
 const router = express.Router();
 
-router.post("/createpurchase", Protect, Authorize("Admin", "LogOfficer"), CreatePurchase);
+router.post("/createpurchase", Protect, Authorize("Admin"), CreatePurchase);
 router.get("/allpurchases", Protect, Authorize("Admin", "LogOfficer", "BaseCommander"), GetAllPurchases);
 
 module.exports = router;
