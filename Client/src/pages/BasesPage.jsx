@@ -81,8 +81,10 @@ const BasesPage = () => {
         tip="Loading bases..." 
         size="large" 
         style={{ 
-          display: 'block', 
-          marginTop: '50px',
+          display: 'flex',
+          justifyContent: "center",
+          alignItems: "center", 
+          marginTop: "225px"
         }} 
       />
     );

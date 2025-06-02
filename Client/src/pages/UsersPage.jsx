@@ -40,14 +40,20 @@ const UsersPage = () => {
     return <Alert message="Access Denied" description="You do not have permission to view this page." type="error" showIcon />;
   }
 
-  if (loading) return <Spin tip="Loading users..." size="large" style={{ display: 'block', marginTop: '50px' }} />;
+  if (loading) return <Spin tip="Loading users..." size="large" style={{
+    display: 'flex',
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: "225px"
+  }}
+  />;
   if (error && !users.length) return <Alert message="Error" description={error} type="error" showIcon />;
 
   return (
     <>
       <div style={{ marginBottom: 16, padding: '16px 0', borderBottom: '1px solid #f0f0f0' }}>
         <Title level={2} style={{ marginBottom: 5, color: "#1677FF" }}>System Users</Title>
-        <Text type="secondary" style={{fontSize: "16px"}}>Manage and view all registered users</Text>
+        <Text type="secondary" style={{ fontSize: "16px" }}>Manage and view all registered users</Text>
       </div>
       {error && <Alert message="Error" description={error} type="warning" showIcon style={{ marginBottom: 16 }} />}
       <UserList users={users} />

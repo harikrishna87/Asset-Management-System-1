@@ -28,11 +28,11 @@ const DashboardPage = () => {
         const [basesData, equipmentTypesData, purchasesData, usersData] = await Promise.all([
           getAllBases().catch(() => []),
           getAllEquipmentTypes().catch(() => []),
-          user?.role === 'Admin' || user?.role === 'LogOfficer' || user?.role === 'BaseCommander' 
-            ? getAllPurchases().catch(() => []) 
+          user?.role === 'Admin' || user?.role === 'LogOfficer' || user?.role === 'BaseCommander'
+            ? getAllPurchases().catch(() => [])
             : Promise.resolve([]),
-          user?.role === 'Admin' 
-            ? getAllUsers().catch(() => ({ users: [] })) 
+          user?.role === 'Admin'
+            ? getAllUsers().catch(() => ({ users: [] }))
             : Promise.resolve({ users: [] })
         ]);
 
@@ -54,7 +54,12 @@ const DashboardPage = () => {
 
   if (loading) {
     return (
-      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '200px' }}>
+      <div style={{
+        display: 'flex',
+        justifyContent: "center",
+        alignItems: "center",
+        marginTop: "225px"
+      }}>
         <Spin size="large" tip="Loading dashboard..." />
       </div>
     );
@@ -62,16 +67,16 @@ const DashboardPage = () => {
 
   return (
     <div>
-      <Title level={2} style={{color: "#1677FF"}}>{user.role} Dashboard</Title>
-      <Paragraph style={{fontSize: "16px"}}>
-        Welcome back, <Text strong style={{color: "#1677FF"}}>{user?.username}</Text>! Here's an overview of the system.
+      <Title level={2} style={{ color: "#1677FF" }}>{user.role} Dashboard</Title>
+      <Paragraph style={{ fontSize: "16px" }}>
+        Welcome back, <Text strong style={{ color: "#1677FF" }}>{user?.username}</Text>! Here's an overview of the system.
       </Paragraph>
 
       <Row gutter={[16, 16]} style={{ marginTop: 24 }}>
         <Col xs={24} sm={12} md={8} lg={6}>
           <Card hoverable onClick={() => navigate('/bases')} style={{ cursor: 'pointer' }}>
             <Statistic
-              title={<span style={{color: "#1677FF", fontSize: "18px"}}>Managed Bases</span>}
+              title={<span style={{ color: "#1677FF", fontSize: "18px" }}>Managed Bases</span>}
               value={stats.bases}
               prefix={<HomeOutlined />}
               valueStyle={{ color: '#3f8600' }}
@@ -81,7 +86,7 @@ const DashboardPage = () => {
         <Col xs={24} sm={12} md={8} lg={6}>
           <Card hoverable onClick={() => navigate('/equipment-types')} style={{ cursor: 'pointer' }}>
             <Statistic
-              title = {<span style={{color: "#1677FF", fontSize: "18px"}}>Equipment Types</span>}
+              title={<span style={{ color: "#1677FF", fontSize: "18px" }}>Equipment Types</span>}
               value={stats.equipmentTypes}
               prefix={<ToolOutlined />}
               valueStyle={{ color: '#cf1322' }}
@@ -92,7 +97,7 @@ const DashboardPage = () => {
           <Col xs={24} sm={12} md={8} lg={6}>
             <Card hoverable onClick={() => navigate('/purchases')} style={{ cursor: 'pointer' }}>
               <Statistic
-                title={<span style={{color: "#1677FF", fontSize: "18px"}}>Total Purchases</span>}
+                title={<span style={{ color: "#1677FF", fontSize: "18px" }}>Total Purchases</span>}
                 value={stats.purchases}
                 prefix={<ShoppingCartOutlined />}
                 valueStyle={{ color: 'purple' }}
@@ -104,7 +109,7 @@ const DashboardPage = () => {
           <Col xs={24} sm={12} md={8} lg={6}>
             <Card hoverable onClick={() => navigate('/users')} style={{ cursor: 'pointer' }}>
               <Statistic
-                title={<span style={{color: "#1677FF", fontSize: "18px"}}>System Users</span>}
+                title={<span style={{ color: "#1677FF", fontSize: "18px" }}>System Users</span>}
                 value={stats.users}
                 prefix={<UserOutlined />}
                 valueStyle={{ color: '#faad14' }}
@@ -116,9 +121,9 @@ const DashboardPage = () => {
 
       {user?.assignedBase && (
         <Card style={{ marginTop: 24 }}>
-          <Title level={3} style={{color: "#1677FF"}}>Your Assigned Base</Title>
-          <Paragraph style={{fontSize: "16px"}}>
-            You are currently associated with: <Text strong style={{color: "#1677FF"}}>{user.assignedBase.name}</Text> located at <Text strong style={{color: "#1677FF"}}>{user.assignedBase.location}</Text>.
+          <Title level={3} style={{ color: "#1677FF" }}>Your Assigned Base</Title>
+          <Paragraph style={{ fontSize: "16px" }}>
+            You are currently associated with: <Text strong style={{ color: "#1677FF" }}>{user.assignedBase.name}</Text> located at <Text strong style={{ color: "#1677FF" }}>{user.assignedBase.location}</Text>.
           </Paragraph>
         </Card>
       )}

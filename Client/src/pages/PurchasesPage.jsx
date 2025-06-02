@@ -17,9 +17,9 @@ const PurchasesPage = () => {
 
   const fetchPurchases = useCallback(async () => {
     if (!canView) {
-        setError("You do not have permission to view purchases.");
-        setLoading(false);
-        return;
+      setError("You do not have permission to view purchases.");
+      setLoading(false);
+      return;
     }
     setLoading(true);
     setError(null);
@@ -53,16 +53,22 @@ const PurchasesPage = () => {
       message.error(err.response?.data?.message || 'Failed to record purchase');
     }
   };
-  
+
   if (!canView && !loading) return <Alert message="Access Denied" description="You do not have permission to view this page." type="error" showIcon />;
-  if (loading) return <Spin tip="Loading purchases..." size="large" style={{ display: 'block', marginTop: '50px' }} />;
+  if (loading) return <Spin tip="Loading purchases..." size="large" style={{
+    display: 'flex',
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: "225px"
+  }}
+  />;
   if (error && !purchases.length) return <Alert message="Error" description={error} type="error" showIcon />;
 
   return (
     <>
       <div style={{ marginBottom: 16, padding: '16px 0', borderBottom: '1px solid #f0f0f0' }}>
         <Title level={2} style={{ marginBottom: 5, color: "#1677FF" }}>Equipment Purchases</Title>
-        <Text type="secondary" style={{fontSize: "16px"}}>Log and view all equipment procurement</Text>
+        <Text type="secondary" style={{ fontSize: "16px" }}>Log and view all equipment procurement</Text>
       </div>
       {error && <Alert message="Error" description={error} type="warning" showIcon style={{ marginBottom: 16 }} />}
       <PurchaseList

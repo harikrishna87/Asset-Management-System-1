@@ -76,14 +76,20 @@ const EquipmentTypesPage = () => {
     }
   };
 
-  if (loading) return <Spin tip="Loading equipment types..." size="large" style={{ display: 'block', marginTop: '50px' }} />;
+  if (loading) return <Spin tip="Loading equipment types..." size="large" style={{
+    display: 'flex',
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: "225px"
+  }} 
+  />;
   if (error && !equipmentTypes.length) return <Alert message="Error" description={error} type="error" showIcon />;
 
   return (
     <>
       <div style={{ marginBottom: 16, padding: '16px 0', borderBottom: '1px solid #f0f0f0' }}>
         <Title level={2} style={{ marginBottom: 5, color: "#1677FF" }}>Equipment Types</Title>
-        <Text type="secondary" style={{fontSize: "16px"}}>Manage all types of military equipment</Text>
+        <Text type="secondary" style={{ fontSize: "16px" }}>Manage all types of military equipment</Text>
       </div>
       {error && <Alert message="Error" description={error} type="warning" showIcon style={{ marginBottom: 16 }} />}
       <EquipmentTypeList
